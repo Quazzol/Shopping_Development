@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Quadro.Account.API.Application.Commands;
+using Quadro.Account.API.Application.Queries;
 
 namespace Quadro.Account.API;
 
@@ -26,7 +28,7 @@ public class UserController : ControllerBase
     [HttpGet()]
     public async Task<IActionResult> FindUser(string email)
     {
-        return Ok(await Mediator.Send(new FindUserQuery() { Email = email }));
+        return Ok(await Mediator.Send(new FindUserQuery { Email = email }));
     }
 
 }

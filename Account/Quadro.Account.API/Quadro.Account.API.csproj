@@ -11,6 +11,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Quadro.Account.Domain\Quadro.Account.Domain.csproj" />
     <ProjectReference Include="..\Quadro.Account.Infrastructure\Quadro.Account.Infrastructure.csproj" />
   </ItemGroup>
   <PropertyGroup>
