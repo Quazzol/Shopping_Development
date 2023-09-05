@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Quadro.Account.API.Application.Commands;
 using Quadro.Account.API.Application.Queries;
 
-namespace Quadro.Account.API;
+namespace Quadro.Account.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]

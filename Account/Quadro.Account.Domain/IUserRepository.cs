@@ -9,4 +9,6 @@ namespace Quadro.Account.Domain;
 public interface IUserRepository
 {
    Task<Guid> Save(User user);
+
+   Task<bool> UserNameTaken(string userName);
 }

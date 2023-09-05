@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Ardalis.GuardClauses;
 
 namespace Quadro.Account.Domain.Common
 {
@@ -9,6 +10,7 @@ namespace Quadro.Account.Domain.Common
 
         public bool IsSatisfiedBy(T entity)
         {
+            Guard.Against.Null(Expression);
             var predicate = Expression.Compile();
             return predicate(entity);
         }
@@ -29,7 +31,6 @@ namespace Quadro.Account.Domain.Common
         }
 
     }
-
 
     public class AndSpecification<T> : Specification<T>
     {

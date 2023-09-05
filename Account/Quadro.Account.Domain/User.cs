@@ -23,8 +23,7 @@ public class User : Entity<Guid>
             return;
         }
         Name = name;
-        DomainEvents.Add(new UserNameUpdated {Name = Name});
-
+        AddDomainEvent(new UserNameUpdated { Name = Name });
     }
 
 }

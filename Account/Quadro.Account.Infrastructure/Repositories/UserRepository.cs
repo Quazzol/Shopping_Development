@@ -22,5 +22,10 @@ namespace Quadro.Account.Infrastructure.Repositories
             await _accountDbContext.SaveChangesAsync();
             return model.Id;
         }
+
+        public Task<bool> UserNameTaken(string userName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
