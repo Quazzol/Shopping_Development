@@ -11,6 +11,7 @@ namespace Quadro.Account.Domain.Common
         public bool IsSatisfiedBy(T entity)
         {
             Guard.Against.Null(Expression);
+            Guard.Against.Null(entity);
             var predicate = Expression.Compile();
             return predicate(entity);
         }

@@ -21,11 +21,19 @@ public class SignUpUserCommandHandler : ICommandHandler<SignUpUserCommand, Guid>
         var mailAddress = EmailAddress.From(request.Email);
         var credentials = new Credentials(mailAddress, request.Password);
         var user = new User(credentials);
+
+        var validator = new UserNameMustBeUpperCaseValidator();
+        var result = validator.Validate(user);
+        if (!result.IsValid)
+        {
+            throw new InvalidOperationException(result.Errors.ToString());
+        }
         user.UpdateName(request.Name);
         foreach (var domainEvent in user.DomainEvents)
         {
             _dispatcher.Dispatch(domainEvent);
         }
+
         return _userRepository.Save(user);
     }
 }
