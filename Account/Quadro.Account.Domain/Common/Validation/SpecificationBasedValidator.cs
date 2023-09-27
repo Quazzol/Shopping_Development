@@ -24,7 +24,7 @@ namespace Quadro.Account.Domain.Common.Validation
             {
                 validationResult.AddError(GetError(entity));
             }
-            return new ValidationResult();
+            return validationResult;
         }
 
         protected abstract ValidationError GetError(T entity);

@@ -2,21 +2,19 @@
 {
     public abstract class Entity<TId>
     {
-
-        private List<IDomainEvent> _domainEvents;
-        public List<IDomainEvent> DomainEvents => _domainEvents;
+        protected List<IDomainEvent> DomainEvents { get; private set; }
 
         public TId Id { get; protected set; }
 
         public void AddDomainEvent(IDomainEvent domainEvent)
         {
-            _domainEvents = _domainEvents ?? new List<IDomainEvent>();
-            _domainEvents.Add(domainEvent);
+            DomainEvents ??= new List<IDomainEvent>();
+            DomainEvents.Add(domainEvent);
         }
 
         public void RemoveDomainEvent(IDomainEvent domainEvent)
         {
-            _domainEvents?.Remove(domainEvent);
+            DomainEvents?.Remove(domainEvent);
         }
 
     }
