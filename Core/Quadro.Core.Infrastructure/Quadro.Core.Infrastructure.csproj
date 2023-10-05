@@ -8,6 +8,10 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Quadro.Core.Infrastructure</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Quadro</Authors>
+    <Company>Quadro</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
