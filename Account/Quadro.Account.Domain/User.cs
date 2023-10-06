@@ -1,5 +1,5 @@
 ﻿using Ardalis.GuardClauses;
-using Quadro.Account.Domain.Common;
+using Quadro.Core.Domain.SeedWork;
 
 namespace Quadro.Account.Domain;
 

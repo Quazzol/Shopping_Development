@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 using Moq;
-using Quadro.Account.Domain.Common;
+using Quadro.Core.Domain.Validation;
 
 namespace Quadro.Account.Domain.UnitTests;
 

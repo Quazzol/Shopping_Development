@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ardalis.GuardClauses;
-using Quadro.Account.Domain.Common;
+﻿using Ardalis.GuardClauses;
+using Quadro.Core.Domain.SeedWork;
 
 namespace Quadro.Account.Domain;
 
-public class Credentials : ValueObject
+public class Credentials : ValueObject<Credentials>
 {
     public EmailAddress Address { get; }
     public string Password { get; }

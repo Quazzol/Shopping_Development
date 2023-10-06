@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Quadro.Account.Domain.Common;
+﻿using System.Linq.Expressions;
+using Quadro.Core.Domain.Validation;
 
 namespace Quadro.Account.Domain
 {

@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
 using Quadro.Account.API;
 using Quadro.Account.Domain;
-using Quadro.Account.Domain.Common;
 using Quadro.Account.Infrastructure;
 using Quadro.Account.Infrastructure.Repositories;
 
@@ -16,11 +15,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddScoped(typeof(AccountDbContext));
-builder.Services.AddSingleton<IDomainEventDispatcher>(q => new ServiceDomainEventDispatcher(q));
-// Add DomainEvent Handlers
-builder.Services.AddTransient<IDomainEventHandler<UserNameUpdated>, UserNameUpdatedEventHandler>();
-
-
 builder.Services.AddMediatR((q) => q.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

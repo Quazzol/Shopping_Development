@@ -8,7 +8,7 @@ namespace Quadro.Account.API.Application.Commands;
 public class SignUpUserCommand : ICommand<Guid>
 {
 
-    public string Name { get; set; }
+    public  string Name { get; set; }
 
     public string Email { get; set; }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Quadro.Account.Domain.Common;
+using Quadro.Core.Domain.SeedWork;
 
 namespace Quadro.Account.Domain.UnitTests
 {
@@ -98,7 +98,7 @@ namespace Quadro.Account.Domain.UnitTests
 
     }
 
-    public class TestValueObject : ValueObject
+    public class TestValueObject : ValueObject<TestValueObject>
     {
         public string Prop1 { get; }
         public string Prop2 { get; }
