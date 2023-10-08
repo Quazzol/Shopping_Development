@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Quadro.Account.API.Application.Commands;
 using Quadro.Account.Domain;
-using Quadro.Account.Infrastructure.Application;
 
 namespace Quadro.Account.API.Application.CommandHandlers;
 
