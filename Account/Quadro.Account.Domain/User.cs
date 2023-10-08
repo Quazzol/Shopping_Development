@@ -23,7 +23,6 @@ public class User : Entity<Guid>
             return;
         }
         Name = name;
-        AddDomainEvent(new UserNameUpdated { Name = Name });
     }
 
 }
