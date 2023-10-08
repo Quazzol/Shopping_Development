@@ -12,5 +12,5 @@ public interface IEntity
 /// <typeparam name="T">Entity Id Type </typeparam>
 public interface IEntity<T> : IEntity
 {
-    public T Id { get; init; }
+    public T? Id { get; init; }
 }
