@@ -3,8 +3,8 @@ namespace Quadro.Core.Infrastructure.WebApi;
 public class CustomControllerBase : ControllerBase
 {
 
-    protected readonly ICommandBus _commandBus;
-    protected readonly IQueryBus _queryBus;
+    private readonly ICommandBus _commandBus;
+    private readonly IQueryBus _queryBus;
 
     protected CustomControllerBase(ICommandBus commandBus, IQueryBus queryBus)
     {
