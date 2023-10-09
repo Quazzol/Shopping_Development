@@ -15,15 +15,17 @@ namespace Quadro.Account.Domain
         {
             Repository = repository;
         }
- 
+
 
         public async Task Handle(UserNameUpdated @event, CancellationToken cancellationToken)
         {
-            var userNameTaken = await Repository.UserNameTaken(@event.Name);
+            /* var userNameTaken = await Repository.UserNameTaken(@event.Name);
             if (userNameTaken)
             {
                 throw new Exception("UserName Already taken!");
-    }
-}
+
+        
+        } */
+        }
     }
 }

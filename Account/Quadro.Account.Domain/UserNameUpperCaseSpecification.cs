@@ -5,6 +5,6 @@ namespace Quadro.Account.Domain
 {
     public class UserNameUpperCaseSpecification : Specification<User>
     {
-        public override Expression<Func<User, bool>> Expression => user => user.Name.All(char.IsUpper);
+        public override Expression<Func<User, bool>> Expression => user => user.UserName.All(char.IsUpper);
     }
 }

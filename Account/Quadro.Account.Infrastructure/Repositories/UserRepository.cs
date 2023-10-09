@@ -1,9 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Quadro.Account.Domain;
-using Quadro.Account.Infrastructure.DataModel;
-
-namespace Quadro.Account.Infrastructure.Repositories
+﻿namespace Quadro.Account.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -13,19 +8,12 @@ namespace Quadro.Account.Infrastructure.Repositories
         {
             _accountDbContext = accountDbContext;
         }
+        public Task SignInUser(User user, CancellationToken cancellationToken = default)
+                    => _accountDbContext.SignInUser(user, cancellationToken);
 
-        public async Task<Guid> Save(User user)
-        {
-            //Mapping Logic
-            var model = new UserDataModel();
-            await _accountDbContext.Users.AddAsync(model);
-            await _accountDbContext.SaveChangesAsync();
-            return model.Id;
-        }
+        public Task<Guid> SignUpUser(User user, CancellationToken cancellationToken = default)
+                    => _accountDbContext.SignUpUser(user, cancellationToken);
 
-        public Task<bool> UserNameTaken(string userName)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

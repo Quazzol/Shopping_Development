@@ -12,26 +12,24 @@ public class SignUpUserCommandHandler : ICommandHandler<SignUpUserCommand, Guid>
     {
         _userRepository = userRepository;
     }
-    public Task<Guid> Handle(SignUpUserCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(SignUpUserCommand request, CancellationToken cancellationToken)
     {
-        /*  var mailAddress = EmailAddress.From(request.Email);
-         var credentials = new Credentials(mailAddress, request.Password);
-         var user = new User(credentials);
+        var mailAddress = EmailAddress.From(request.Email);
+        var credentials = new Credentials(mailAddress, request.Password);
+        var user = new User
+        {
+            Id = Guid.NewGuid(),
+            UserName = request.UserName,
+            Credentials = credentials
+        };
 
-         var validator = new UserNameMustBeUpperCaseValidator();
-         var result = validator.Validate(user);
-         if (!result.IsValid)
-         {
-             throw new InvalidOperationException(result.Errors.ToString());
-         }
-         user.UpdateName(request.Name);
-         foreach (var domainEvent in user.DomainEvents)
-         {
-             _dispatcher.Dispatch(domainEvent);
-         }
+      /*   var validator = new UserNameMustBeUpperCaseValidator();
+        var result = validator.Validate(user);
+        if (!result.IsValid)
+        {
+            throw new InvalidOperationException(result.Errors.ToString());
+        } */
 
-         return _userRepository.Save(user); */
-
-        throw new NotImplementedException();
+        return await _userRepository.SignUpUser(user, cancellationToken);
     }
 }
