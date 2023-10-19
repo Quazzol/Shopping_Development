@@ -6,7 +6,7 @@ namespace Quadro.Account.Infrastructure.Data
     {
 
         [JsonPropertyName("pk")]
-        public string Pk => Id.ToString();
+        public string Pk => Id;
 
         [JsonPropertyName("sk")]
         public string Sk => Pk;
