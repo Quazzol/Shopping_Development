@@ -1,18 +1,26 @@
-﻿namespace Quadro.Account.Infrastructure.Data
+﻿using System.Text.Json.Serialization;
+
+namespace Quadro.Account.Infrastructure.Data
 {
-    [DynamoDBTable("User")]
     public class UserData
     {
-        [DynamoDBHashKey]
-        public Guid Id { get; set; }
 
-        [DynamoDBProperty]
+        [JsonPropertyName("pk")]
+        public string Pk => Id.ToString();
+
+        [JsonPropertyName("sk")]
+        public string Sk => Pk;
+
+        [JsonPropertyName("id")]
+        public string Id { get; init; } = default!;
+
+        [JsonPropertyName("userName")]
         public string UserName { get; set; }
 
-        [DynamoDBProperty]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
 
-        [DynamoDBProperty]
+        [JsonPropertyName("password")]
         public string Password { get; set; }
     }
 }

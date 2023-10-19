@@ -1,11 +1,13 @@
-﻿using Amazon.DynamoDBv2;
-
+﻿
 namespace Quadro.Account.Infrastructure
 {
-    public class AccountDbContext : DynamoDBContext
+    public class AccountDbContext
     {
-        public AccountDbContext(IAmazonDynamoDB client) : base(client)
+
+        private readonly IAmazonDynamoDB _amazonDynamoDB;
+        public AccountDbContext(IAmazonDynamoDB amazonDynamoDB)
         {
+            _amazonDynamoDB = amazonDynamoDB;
         }
 
         public Task SignInUser(User user, CancellationToken cancellationToken = default)
@@ -15,19 +17,31 @@ namespace Quadro.Account.Infrastructure
 
         public async Task<Guid> SignUpUser(User user, CancellationToken cancellationToken = default)
         {
+
             var userData = new UserData
             {
-                Id = user.Id,
+                Id = user.Id.ToString(),
                 UserName = user.UserName,
                 Email = user.Credentials.Address.ToString(),
                 Password = user.Credentials.Password
             };
 
-            await SaveAsync(userData, cancellationToken);
+            var json = JsonSerializer.Serialize(userData);
+            var itemAsDocument = Document.FromJson(json);
+            var itemAsAttributes = itemAsDocument.ToAttributeMap();
 
-            return user.Id;
+            var request = new PutItemRequest
+            {
+                TableName = "users",
+                Item = itemAsAttributes
+            };
 
+            var response = await _amazonDynamoDB.PutItemAsync(request, cancellationToken);
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+                return user.Id;
+
+            return Guid.Empty;
         }
-       
+
     }
 }

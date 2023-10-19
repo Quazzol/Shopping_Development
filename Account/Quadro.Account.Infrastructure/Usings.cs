@@ -5,3 +5,6 @@ global using Amazon.DynamoDBv2;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Quadro.Account.Infrastructure.Repositories;
+global using System.Text.Json;
+global using Amazon.DynamoDBv2.Model;
+global using Amazon.DynamoDBv2.DocumentModel;
