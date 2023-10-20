@@ -3,17 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadro.Core.Domain", "Quadro.Core.Domain\Quadro.Core.Domain.csproj", "{2AC0CBED-8C35-4840-903E-1C12C6DC728A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.Core.Domain", "Quadro.Core.Domain\Quadro.Core.Domain.csproj", "{2AC0CBED-8C35-4840-903E-1C12C6DC728A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadro.Core.Infrastructure", "Quadro.Core.Infrastructure\Quadro.Core.Infrastructure.csproj", "{711650E5-C01B-45C8-BD46-44E9CCCB7455}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.Core.Infrastructure", "Quadro.Core.Infrastructure\Quadro.Core.Infrastructure.csproj", "{711650E5-C01B-45C8-BD46-44E9CCCB7455}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{83858837-5DAA-44F7-949E-4DA5BEF035D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadro.Core.Domain.UnitTests", "Quadro.Core.Domain.UnitTests\Quadro.Core.Domain.UnitTests.csproj", "{A6688AC9-52F0-4A81-93D4-434AC81E8304}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2AC0CBED-8C35-4840-903E-1C12C6DC728A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +25,18 @@ Global
 		{711650E5-C01B-45C8-BD46-44E9CCCB7455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{711650E5-C01B-45C8-BD46-44E9CCCB7455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{711650E5-C01B-45C8-BD46-44E9CCCB7455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6688AC9-52F0-4A81-93D4-434AC81E8304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6688AC9-52F0-4A81-93D4-434AC81E8304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6688AC9-52F0-4A81-93D4-434AC81E8304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6688AC9-52F0-4A81-93D4-434AC81E8304}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6688AC9-52F0-4A81-93D4-434AC81E8304} = {83858837-5DAA-44F7-949E-4DA5BEF035D3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {910E0C49-D502-41C4-A603-614771B788A8}
 	EndGlobalSection
 EndGlobal

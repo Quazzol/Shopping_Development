@@ -24,7 +24,7 @@ public abstract class ValueObject<T>
     public override int GetHashCode()
     {
         return GetEqualityComponents()
-            .Select(x => x is not null ? x.GetHashCode() : 0)
+            .Select( x => x is not null ? x.GetHashCode() : 0)
             .Aggregate((x, y) => x ^ y);
     }
 
@@ -36,8 +36,13 @@ public abstract class ValueObject<T>
         return ReferenceEquals(left, right) || left!.Equals(right);
     }
 
-    protected static bool NotEqualOperator(ValueObject<T> left, ValueObject<T> right)
+    public static bool operator ==(ValueObject<T> left, ValueObject<T> right)
     {
-        return !(EqualOperator(left, right));
+        return EqualOperator(left, right);
+    }
+
+    public static bool operator !=(ValueObject<T> left, ValueObject<T> right)
+    {
+        return !EqualOperator(left, right);
     }
 }

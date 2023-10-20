@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 using Moq;
 using Quadro.Core.Domain.Validation;
 
-namespace Quadro.Account.Domain.UnitTests;
+namespace Quadro.Core.Domain.UnitTests;
 
 public class SpecificationTests
 {
@@ -15,7 +15,7 @@ public class SpecificationTests
         {
             Name = "Name"
         };
-        nullSpecification.Setup(q => q.Expression).Returns<Specification<TestUser>>(null);
+        nullSpecification.Setup(q => q.Expression).Returns(() => null);
         Assert.Throws<ArgumentNullException>(() => nullSpecification.Object.IsSatisfiedBy(user));
     }
 
@@ -82,8 +82,8 @@ public class SpecificationTests
 
     public class TestUser
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string Name { get; set; } = null!;
+        public string Surname { get; set; } = null!;
     }
 
 
