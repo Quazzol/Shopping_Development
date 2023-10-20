@@ -26,7 +26,7 @@ public class EmailAddress : ValueObject
     {
         var emailAddress = new EmailAddress(address);
         //Validation
-        if (MailAddress.TryCreate(emailAddress.ToString(), out var mailAddress))
+        if (!MailAddress.TryCreate(emailAddress.ToString(), out var mailAddress))
         {
             throw new FormatException("Invalid Mail Address");
         }
