@@ -8,7 +8,8 @@ namespace Quadro.Account.Domain;
 
 public interface IUserRepository
 {
-   Task<Guid> Save(User user);
+   Task<Guid> SignUpUser(User user, CancellationToken cancellationToken = default);
 
-   Task<bool> UserNameTaken(string userName);
+   Task SignInUser(User user, CancellationToken cancellationToken = default);
+
 }

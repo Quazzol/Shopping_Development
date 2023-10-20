@@ -1,20 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Quadro.Core.Domain.SeedWork;
-public abstract class Entity<TId> : IEntity<TId>
+public abstract class Entity<TKey> : IEntity<TKey>
 {
-    public required TId Id { get; init; }
-
-    protected List<IDomainEvent>? DomainEvents { get; private set; }
-
-    public void AddDomainEvent(IDomainEvent domainEvent)
-    {
-        DomainEvents ??= new List<IDomainEvent>();
-        DomainEvents.Add(domainEvent);
-    }
-
-    public void RemoveDomainEvent(IDomainEvent domainEvent)
-    {
-        DomainEvents?.Remove(domainEvent);
-    }
+    public TKey? Id { get; init; }
 
     public virtual object Clone() => MemberwiseClone();
 }
+ 

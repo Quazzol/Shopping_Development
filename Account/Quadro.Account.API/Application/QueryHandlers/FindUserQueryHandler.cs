@@ -1,5 +1,4 @@
 using Quadro.Account.API.Application.Queries;
-using Quadro.Account.Infrastructure.Application;
 
 namespace Quadro.Account.API.Application.QueryHandlers;
 

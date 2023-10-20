@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Quadro.Account.Domain.Common;
-using Quadro.Account.Domain.Common.Validation;
+﻿
+using Quadro.Core.Domain.Validation;
 
-namespace Quadro.Account.Domain
-{
+namespace Quadro.Account.Domain;
+
     public class UserValidator : CompositeValidator<User>
     {
         public UserValidator()
@@ -27,4 +22,4 @@ namespace Quadro.Account.Domain
             return new ValidationError("User Name can contain only upper case characters");
         }
     }
-}
+

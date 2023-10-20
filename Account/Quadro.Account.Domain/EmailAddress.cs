@@ -1,9 +1,9 @@
 ﻿using System.Net.Mail;
-using Quadro.Account.Domain.Common;
+using Quadro.Core.Domain.SeedWork;
 
 namespace Quadro.Account.Domain;
 
-public class EmailAddress : ValueObject
+public class EmailAddress : ValueObject<EmailAddress>
 {
     private readonly string _address;
 

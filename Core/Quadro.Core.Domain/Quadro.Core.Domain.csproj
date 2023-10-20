@@ -4,9 +4,15 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Quadro.Core.Domain</PackageId>
+    <Version>1.0.2</Version>
+    <Authors>Quadro</Authors>
+    <Company>Quadro</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" Version="4.1.1" />
     <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
 
