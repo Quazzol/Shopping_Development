@@ -1,3 +1,7 @@
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Quadro.Core.Infrastructure.Email;
+
 namespace Quadro.Core.Infrastructure;
 
 public static class CoreInfrastructureExtensions
@@ -8,12 +12,25 @@ public static class CoreInfrastructureExtensions
         // EventBus
         services.TryAddSingleton<IEventDispatcher, EventDispatcher>();
 
-            // CQRS
+        // CQRS
         services.AddScoped<ICommandBus, CommandBus>();
         services.AddScoped<IQueryBus, QueryBus>();
 
+        return services;
+    }
+
+    public static IServiceCollection AddEmailService(this IServiceCollection services, IConfiguration configuration)
+    {
+        if (configuration is null)
+            throw new ArgumentNullException(nameof(configuration));
+
+        services.AddSingleton(configuration.GetSection("EmailSettings").Get<EmailSettings>()!);
+        services.AddAWSService<IAmazonSimpleEmailService>();
+        services.AddTransient<IEmailService, EmailService>();
 
         return services;
     }
+
+
 
 }

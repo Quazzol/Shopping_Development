@@ -13,11 +13,14 @@ builder.Services.AddLogging();
 builder.Services.AddControllers();
 builder.Services.AddMediatR((q) => q.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
+//Add Core Infrastructure
+builder.Services.AddCoreInfrastructure();
+builder.Services.AddEmailService(builder.Configuration);
+
 //Add Account Infrastructure
 builder.Services.AddAccountInfrastructure(builder.Configuration);
 
-//Add Core Infrastructure
-builder.Services.AddCoreInfrastructure();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

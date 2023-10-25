@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Quadro.Account.API.Application.Commands;
+﻿namespace Quadro.Account.Domain.Commands;
 
 //For Swagger 
 [DisplayName("SignUpUserRequest")]

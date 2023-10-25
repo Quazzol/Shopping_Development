@@ -8,4 +8,6 @@ global using Quadro.Core.Domain.CQRS.QueryHandling;
 global using Microsoft.Extensions.Logging;
 global using Quadro.Core.Infrastructure.CQRS;
 global using Microsoft.AspNetCore.Mvc;
+global using Amazon.SimpleEmail;
+
 

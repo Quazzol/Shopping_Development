@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Quadro.Account.API.Application.Commands;
 using Quadro.Account.API.Application.Queries;
 
 namespace Quadro.Account.API.Controllers;
