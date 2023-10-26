@@ -2,5 +2,5 @@ namespace Quadro.Core.Infrastructure.Email;
 
 public interface IEmailService
 {
-    Task<bool> SendEmail(EmailRequest emailRequest);
+    Task<SendEmailResult> SendEmailAsync(EmailRequest emailRequest, CancellationToken cancellationToken = default);
 }
