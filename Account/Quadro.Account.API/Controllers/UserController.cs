@@ -1,8 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Quadro.Account.API.Application.Queries;
-
-namespace Quadro.Account.API.Controllers;
+﻿namespace Quadro.Account.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -16,16 +12,17 @@ public class UserController : CustomControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> SignUp([FromBody] SignUpUserCommand command)
+    [Route("signup")]
+    public async Task<IActionResult> SignUp([FromBody] SignUpRequest request)
     {
-        return await CommandResponse(command);
+        return await CommandResponse(new SignUpUserCommand(request.UserName, request.Email, request.Password));
     }
 
-
-    [HttpGet()]
-    public async Task<IActionResult> FindUser(string email)
+    [HttpPost()]
+    [Route("signin")]
+    public async Task<IActionResult> SignIn([FromBody] SignInRequest request)
     {
-        return await QueryResponse(new FindUserQuery { Email = email });
+        return await QueryResponse(new SignInUserQuery(request.Email, request.Password));
     }
 
 }

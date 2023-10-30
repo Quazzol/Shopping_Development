@@ -13,11 +13,16 @@ public static class Extensions
         services.AddDefaultAWSOptions(configuration.GetAWSOptions());
         services.AddAWSService<IAmazonDynamoDB>();
 
+
+
         //DbContext
         services.AddScoped(typeof(AccountDbContext));
 
         //Repository
         services.AddTransient<IUserRepository, UserRepository>();
+
+
+      
 
         return services;
     }

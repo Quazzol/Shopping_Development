@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Quadro.Account.Domain;
+﻿namespace Quadro.Account.Domain;
 
 public interface IUserRepository
 {
-   Task<Guid> SignUpUser(User user, CancellationToken cancellationToken = default);
-
-   Task SignInUser(User user, CancellationToken cancellationToken = default);
-
+   Task<Guid> RegisterUser(User user, CancellationToken cancellationToken = default);
+   Task<User> AuthenticateUser(string email, string password, CancellationToken cancellationToken = default);
 }

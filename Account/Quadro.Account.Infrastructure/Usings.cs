@@ -1,5 +1,4 @@
 global using Quadro.Account.Domain;
-global using Amazon.DynamoDBv2.DataModel;
 global using Quadro.Account.Infrastructure.Data;
 global using Amazon.DynamoDBv2;
 global using Microsoft.Extensions.Configuration;
@@ -8,3 +7,4 @@ global using Quadro.Account.Infrastructure.Repositories;
 global using System.Text.Json;
 global using Amazon.DynamoDBv2.Model;
 global using Amazon.DynamoDBv2.DocumentModel;
+global using Quadro.Account.Infrastructure.Identity;

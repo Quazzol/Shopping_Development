@@ -8,11 +8,14 @@
         {
             _accountDbContext = accountDbContext;
         }
-        public Task SignInUser(User user, CancellationToken cancellationToken = default)
-                    => _accountDbContext.SignInUser(user, cancellationToken);
 
-        public Task<Guid> SignUpUser(User user, CancellationToken cancellationToken = default)
-                    => _accountDbContext.SignUpUser(user, cancellationToken);
+        public Task<User> AuthenticateUser(string email, string password, CancellationToken cancellationToken = default)
+         => _accountDbContext.AuthenticateUser(email, password, cancellationToken);
+
+
+
+        public Task<Guid> RegisterUser(User user, CancellationToken cancellationToken = default)
+                    => _accountDbContext.RegisterUser(user, cancellationToken);
 
 
     }
