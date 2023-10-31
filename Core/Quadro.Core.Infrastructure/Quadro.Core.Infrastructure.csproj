@@ -18,7 +18,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Quadro.Core.Infrastructure</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Quadro</Authors>
     <Company>Quadro</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
