@@ -1,21 +1,25 @@
-﻿namespace Quadro.Account.API.Application.CommandHandlers;
+﻿
+
+namespace Quadro.Account.API.Application.CommandHandlers;
 
 public class SignUpUserCommandHandler : ICommandHandler<SignUpUserCommand, SignUpResultModel>
 {
     private readonly IUserRepository _userRepository;
     private readonly IEventDispatcher _eventDispatcher;
+    private readonly IEncryptionService _encryptionService;
 
 
-    public SignUpUserCommandHandler(IUserRepository userRepository, IEventDispatcher eventDispatcher)
+    public SignUpUserCommandHandler(IUserRepository userRepository, IEventDispatcher eventDispatcher, IEncryptionService encryptionService)
     {
         _userRepository = userRepository;
         _eventDispatcher = eventDispatcher;
+        _encryptionService = encryptionService;
     }
 
     public async Task<SignUpResultModel> Handle(SignUpUserCommand request, CancellationToken cancellationToken)
     {
         var mailAddress = EmailAddress.From(request.Email);
-        var credentials = new Credentials(mailAddress, request.Password);
+        var credentials = new Credentials(mailAddress, _encryptionService.Encrypt(request.Password));
         var user = new User
         {
             Id = Guid.NewGuid(),

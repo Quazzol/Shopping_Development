@@ -4,16 +4,18 @@ public class SignInUserQueryHandler : IQueryHandler<SignInUserQuery, SignInResul
 {
     private readonly IUserRepository _userRepository;
     private readonly ITokenProvider _tokenProvider;
-    public SignInUserQueryHandler(IUserRepository userRepository, ITokenProvider tokenProvider)
+    private readonly IEncryptionService _encryptionService;
+    public SignInUserQueryHandler(IUserRepository userRepository, ITokenProvider tokenProvider, IEncryptionService encryptionService)
     {
         _userRepository = userRepository;
         _tokenProvider = tokenProvider;
+        _encryptionService = encryptionService;
 
     }
 
     public async Task<SignInResultModel> Handle(SignInUserQuery request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.AuthenticateUser(request.Email, request.Password, cancellationToken);
+        var user = await _userRepository.AuthenticateUser(request.Email, _encryptionService.Encrypt(request.Password), cancellationToken);
         var token = _tokenProvider.CreateToken(user);
 
         return new SignInResultModel(token.token, token.validTo);

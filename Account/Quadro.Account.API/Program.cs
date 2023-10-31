@@ -83,4 +83,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+builder.WebHost.UseIIS();
+
 app.Run();

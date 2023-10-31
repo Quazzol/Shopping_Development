@@ -13,6 +13,6 @@ public class UserRegisteredHandler : IEventHandler<UserRegistered>
     public Task Handle(UserRegistered notification, CancellationToken cancellationToken)
     {
         var emailRequest = new EmailRequest(ToEmail: notification.Email, "Information", "Welcome to Shopping App :)");
-        return _emailService.SendEmail(emailRequest);
+        return _emailService.SendEmailAsync(emailRequest);
     }
 }
