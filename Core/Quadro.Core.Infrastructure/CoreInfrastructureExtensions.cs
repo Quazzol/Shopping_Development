@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Quadro.Core.Infrastructure.Email;
+using Quadro.Core.Infrastructure.Encryption;
 
 namespace Quadro.Core.Infrastructure;
 
@@ -27,6 +28,8 @@ public static class CoreInfrastructureExtensions
         services.AddSingleton(configuration.GetSection("EmailSettings").Get<EmailSettings>()!);
         services.AddAWSService<IAmazonSimpleEmailService>();
         services.AddTransient<IEmailService, EmailService>();
+
+        services.AddSingleton<IEncryptionService, AesEncryptionService>();
 
         return services;
     }
