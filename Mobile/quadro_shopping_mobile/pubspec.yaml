@@ -9,9 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get: ^4.6.6
   quadro_flutter_infrastructure:
     path: ../quadro_flutter_infrastructure/
-  cupertino_icons: ^1.0.2
+  #cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
