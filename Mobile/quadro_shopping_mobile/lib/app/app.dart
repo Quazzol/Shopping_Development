@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 class App {
-  Future<void> run() async {}
+  Future<void> run() async {
+    runApp(AppWidget(title: 'Shopping App'));
+  }
 }
 
 class AppWidget extends StatelessWidget {
