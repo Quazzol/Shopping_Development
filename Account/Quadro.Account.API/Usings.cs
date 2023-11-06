@@ -13,3 +13,5 @@ global using Quadro.Account.API.Application.Models;
 global using Quadro.Account.API.Controllers.Requests;
 global using Quadro.Account.Infrastructure.Identity;
 global using Quadro.Core.Infrastructure.Encryption;
+global using Quadro.Account.API.Application.Validations;
+global using FluentValidation;

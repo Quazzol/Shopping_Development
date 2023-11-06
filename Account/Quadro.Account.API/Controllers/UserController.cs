@@ -15,14 +15,14 @@ public class UserController : CustomControllerBase
     [Route("signup")]
     public async Task<IActionResult> SignUp([FromBody] SignUpRequest request)
     {
-        return await CommandResponse(new SignUpUserCommand(request.UserName, request.Email, request.Password));
+        return await CommandResponse(new SignUpUserCommand(new SignUpModel(request.UserName, request.Email, request.Password)));
     }
 
     [HttpPost()]
     [Route("signin")]
     public async Task<IActionResult> SignIn([FromBody] SignInRequest request)
     {
-        return await QueryResponse(new SignInUserQuery(request.Email, request.Password));
+        return await QueryResponse(new SignInUserQuery(new SignInModel(request.Email, request.Password)));
     }
 
 }

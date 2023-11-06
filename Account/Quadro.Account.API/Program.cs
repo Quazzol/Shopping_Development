@@ -1,11 +1,6 @@
-using System.ComponentModel;
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
-using Quadro.Account.API;
-using Microsoft.Extensions.Primitives;
-using System.Text.Json;
-
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -21,6 +16,10 @@ builder.Services.AddEmailService(builder.Configuration);
 
 //Add Account Infrastructure
 builder.Services.AddAccountInfrastructure(builder.Configuration);
+
+//Add Fluent Validations
+builder.Services.AddScoped<IValidator<SignUpModel>, SignUpValidator>();
+
 
 builder.Services.AddSingleton<ITokenProvider, TokenProvider>();
 builder.Services.AddAuthentication(x =>

@@ -1,5 +1,5 @@
 ﻿namespace Quadro.Account.API.Application.Commands;
-public record SignUpUserCommand(string UserName, string Email, string Password) : ICommand<SignUpResultModel>;
+public record SignUpUserCommand(SignUpModel Model) : ICommand<SignUpResultModel>;
 
 
 

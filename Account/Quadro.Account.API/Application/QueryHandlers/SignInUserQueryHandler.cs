@@ -15,7 +15,7 @@ public class SignInUserQueryHandler : IQueryHandler<SignInUserQuery, SignInResul
 
     public async Task<SignInResultModel> Handle(SignInUserQuery request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.AuthenticateUser(request.Email, _encryptionService.Encrypt(request.Password), cancellationToken);
+        var user = await _userRepository.AuthenticateUser(request.Model.Email, _encryptionService.Encrypt(request.Model.Password), cancellationToken);
         var token = _tokenProvider.CreateToken(user);
 
         return new SignInResultModel(token.token, token.validTo);
