@@ -2,7 +2,7 @@ global using Quadro.Core.Domain.CQRS.CommandHandling;
 global using Quadro.Core.Domain.CQRS.QueryHandling;
 global using Quadro.Core.Infrastructure.WebApi;
 global using Quadro.Core.Infrastructure;
-global using Quadro.Account.Infrastructure.Extensions;
+global using Quadro.Account.Infrastructure;
 global using Quadro.Account.Domain;
 global using Quadro.Account.Domain.Events;
 global using Quadro.Core.Domain.EventBus;

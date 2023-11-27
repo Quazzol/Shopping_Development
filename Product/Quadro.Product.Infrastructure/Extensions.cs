@@ -1,11 +1,10 @@
-namespace Quadro.Account.Infrastructure;
+namespace Quadro.Product.Infrastructure;
 
 public static class Extensions
 {
 
-    public static IServiceCollection AddAccountInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddProductInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-
         if (configuration is null)
             throw new ArgumentNullException(nameof(configuration));
 
@@ -16,15 +15,14 @@ public static class Extensions
 
 
         //DbContext
-        services.AddScoped(typeof(AccountDbContext));
+        services.AddScoped(typeof(ProductDbContext));
 
         //Repository
-        services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient<IProductRepository, ProductRepository>();
 
 
-      
+
 
         return services;
     }
-
 }
